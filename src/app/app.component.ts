@@ -9,6 +9,7 @@ import { ProductsDataService } from './services/products-data.service';
 })
 export class AppComponent {
   products: any = [];
+  public conditionalClass: boolean = true;
   constructor(private productData: ProductsDataService) {
     this.productData.getData().subscribe(
       (response) => {
@@ -40,6 +41,14 @@ export class AppComponent {
   // for binding
   isDisabled: boolean = false;
 
+  conditionalClassfun() {
+    return 'change-bg';
+  }
+
+  // conditional style
+  conditionalColor() {
+    return 'red';
+  }
   // if-else
   showData: boolean = false;
   show: string = 'yes';
@@ -81,10 +90,18 @@ export class AppComponent {
 
   // data transfer from parents to child
   parentData: string = 'Hello from Parent!';
-
   changeText() {
     this.parentData = 'Hello from Parent! Changed';
   }
+
+
+  // child to parent data transfer
+  dataFromChild: string = '';
+
+  receiveData(data: string) {
+    this.dataFromChild = data; // Store the received data
+  }
+
 
   // reusable component
   reusableUsers = [
@@ -92,11 +109,6 @@ export class AppComponent {
     { name: 'Ankit', email: 'ankit@gmail.com', phone: 9876543 },
     { name: 'Shubham', email: 'shubham@gmail.com', phone: 8765432 },
   ];
-
-  // child to parent data transfer
-  getChildData(data: string) {
-    console.log(data);
-  }
 
   // two way binding
   twoBindingName: string = '';

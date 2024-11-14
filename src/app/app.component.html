@@ -15,7 +15,16 @@
 <!-- ------------------------------------->
 
 <!-- insert component using selector  -->
+
+<!-- 1st way  -->
 <!-- <app-user-component></app-user-component> -->
+
+<!-- 2st way-- class  -->
+<!-- <div class="app-users"></div> -->
+
+<!-- 3rd way -- attribute -->
+<!-- <div app-user></div> -->
+
 <!-- ------------------------------------->
 
 <!-- inline styles  -->
@@ -35,9 +44,9 @@
 
 <!-- module -- by combining different components -->
 <!-- create a module -- ng g module user-auth -->
-<!-- register this module inside app.module.ts -->
+<!-- import this module inside app.module.ts -->
 
-<!-- needed to export from user-auth.module.ts -->
+<!-- needed to export from user-auth.module.ts to show in app.component.html -->
 <!-- <app-login></app-login> -->
 <!-- ------------------------------------->
 <!-- events  -->
@@ -81,16 +90,44 @@
 <!-- <app-login></app-login> -->
 
 <!-- ------------------------------------->
-<!-- binding  -->
+<!-- binding  -- for changing data (properties)-->
 <!-- to take boolean values from app.components.ts  -->
 
-<!-- interpolation -- will not work for boolean, works with strings and numeric values -->
+<!-- interpolation --  static properties (attributes) (initialised once) will not work for boolean and readonly values, works with strings and numeric values -->
 <!-- <input type="text" value="hello1" disabled={{isDisabled}}> -->
 <!-- binding -->
 <!-- <input type="text" value="hello2" [disabled]=isDisabled> -->
-<!-- ------------------------------------->
 
-<!-- if-else  -->
+
+<!-- class binding  -->
+<!-- <h1 [className]="'change-bg change-text'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, maiores///!</h1>
+<h1 [class]="'change-bg change-text'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, maiores///!</h1> -->
+
+<!-- conditional class applying  -->
+<!-- when conditionalClass true, class will applied  -->
+<!-- <h1 [class.change-bg]="conditionalClass">Lorem ipsum dolor sit amet.</h1> -->
+
+
+<!-- through function  -->
+<!-- <h1 [class]="conditionalClassfun()">Lorem ipsum dolor sit amet.</h1> -->
+
+
+<!-- ngClass  -->
+<!-- <h1 [ngClass]="'change-bg change-text'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas.</h1>
+
+<h1 [ngClass]="['change-bg', 'change-text']">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas.</h1>
+
+<h1 [ngClass]="{'change-bg':true, 'change-text':false}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas.</h1> -->
+
+
+
+<!-- style  -->
+<!-- <h1 [style]="'background-color:blue; color:red'">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+
+<h1 [style]="{'background-color':'red'}">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+
+<h1 [style.color]="conditionalColor()">Lorem ipsum dolor sit amet consectetur adipisicing.</h1> -->
+<!-- ------------------------------------->
 
 <!-- only if  -->
 <!-- <h1 *ngIf="showData" >hello world</h1> -->
@@ -102,7 +139,7 @@
 </ng-template> -->
 
 <!--another way of if-else  -->
-<!-- <h1 *ngIf="show==='yes';  then ifCondition else elseCondition" ></h1>
+<!-- <div *ngIf="show==='yes';  then ifCondition else elseCondition" ></div>
 <ng-template #ifCondition>
   <h1>hello world</h1>
 </ng-template>
@@ -157,6 +194,8 @@
 <!-- add bootstrap css in angular  -->
 <!-- ng add @ng-bootstrap/ng-bootstrap -->
 
+<!-- <h1 class="bg-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing.</h1> -->
+
 <!-- <ngb-alert [dismissible]="false">
 	<strong>Warning!</strong> Better check yourself, you're not looking too good.
 </ngb-alert>
@@ -174,15 +213,18 @@
 </div> -->
 <!-- ------------------------------------->
 <!-- passing data from parent to child -->
+<!-- add input decorator in child's component.ts  -->
 
 <!-- <app-child [childData]="parentData"></app-child>
 <button (click)="changeText()">change text</button> -->
 
 
-<!-- passing data from child to parent -->
 
-<!-- <app-child (getChildData)="getChildData($event)"></app-child> -->
-<!-- <button (click)="changeText()">change text</button> -->
+<!-- passing data from child to parent -->
+<!-- add output decorator in child's component.ts  -->
+
+<!-- <app-child (dataEmitter)="receiveData($event)"></app-child>
+<p>Data from child: {{ dataFromChild }}</p> -->
 <!-- ------------------------------------->
 <!-- <ul *ngFor="let user of reusableUsers">
   <li>
@@ -192,12 +234,12 @@
 </ul> -->
 <!-- ------------------------------------->
 <!-- two way binding  -->
-<!-- need to import formModule -->
+<!-- need to import formModule in app.module.ts -->
 <!-- <input type="text" [(ngModel)]="twoBindingName">
 
 <h2>{{twoBindingName}}</h2> -->
 <!-- ------------------------------------->
-<!-- pipes  -->
+<!-- pipes -- used in html only  -->
 <!-- <h1> {{pipeTitle}}</h1>
 <h1> {{pipeTitle | uppercase}}</h1>
 <h1> {{pipeTitle | lowercase}}</h1>
@@ -236,6 +278,7 @@
 <!-- custome directive -- ng g directive redElm -->
 <!-- make changes in directive files -->
 <!-- <h1 appRedElm> {{ directiveElement}}</h1> -->
+
 
 <!-- ------------------------------------->
 <!-- Routing  -->
@@ -333,7 +376,7 @@
 <!-- lazy loading  -->
 <!-- dont import module in anywhere (not in app.module.ts) like before  -->
 
- <!--<ul>
+<!--<ul>
   <li><a routerLink="superadmin/login">login</a></li>
   <li><a routerLink="superadmin/list">list</a></li>
 </ul>

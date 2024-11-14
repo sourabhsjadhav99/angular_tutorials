@@ -54,8 +54,8 @@ import { SubadminModule } from './subadmin/subadmin.module';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    UserAuthModule, // create sub module
-    FormsModule, // to work with forn and for two way binding
+    UserAuthModule, //  other module need to import
+    FormsModule, // to work with forms and for two way binding
     HttpClientModule, // for fetching data
     AdminModule, // for module routing
     SubadminModule, // e.g for group routing

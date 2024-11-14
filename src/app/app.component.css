@@ -33,3 +33,12 @@ td,
 th {
     border: 1px solid black;
 }
+
+
+.change-bg{
+    background-color: gray;
+}
+
+.change-text{
+    font-weight: bolder;
+}

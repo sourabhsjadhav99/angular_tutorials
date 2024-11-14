@@ -5,5 +5,5 @@
 
 
 <!-- child to parent  -->
-<input type="text" #inputData>
-<button (click)="getChildData.emit(inputData.value)">Update data</button>
+<input [(ngModel)]="inputData" placeholder="Enter some data" />
+<button (click)="sendDataToParent()">Send Data to Parent</button>

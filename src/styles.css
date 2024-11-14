@@ -2,3 +2,7 @@
 .bg-color{
     background-color: lightsalmon;
 }
+
+.change-bg, .change-text{
+    background-color: gray;
+}
