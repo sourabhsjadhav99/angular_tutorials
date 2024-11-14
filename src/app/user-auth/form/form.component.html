@@ -1,0 +1,33 @@
+<!-- need to give ngModel  -->
+
+<!-- teplate forms  -->
+<!-- add formModule in module.ts -->
+<!-- <form #basicForm="ngForm" (ngSubmit)="getFormData(basicForm.value)">
+    <input type="text" ngModel name="name" placeholder="name"><br/><br/>
+    <input type="email" ngModel name="email" placeholder="email"><br/><br/>
+    <input type="password" ngModel name="password" placeholder="password"><br/><br/>
+    <button>click</button>
+    
+  </form>
+
+
+  <h1>{{ basicForm.value.name }}</h1>
+
+  <h1 >{{ formData.email }}</h1>  -->
+
+
+  <!-- reactive forms  -->
+   <!-- add reactive form module in module.ts  -->
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <input type="text" name="name" placeholder="name" formControlName="name">
+    <small *ngIf="name && name.invalid && name.touched" style="color: red;">name is required</small><br/><br/>
+    <input type="email" name="email" placeholder="email" formControlName="email">
+    <small *ngIf="email && email.invalid && email.touched" style="color: red;">email is required</small><br/><br/>
+    <input type="password" name="password" placeholder="password" formControlName="password"><br/><br/>
+    <small *ngIf="password && password.invalid && password.touched" style="color: red;">password is required</small>
+    <button [disabled]="loginForm.invalid">click</button>
+    
+  </form>
+
+
+  

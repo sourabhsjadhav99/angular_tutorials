@@ -1,0 +1,342 @@
+<!-- interpolation  -->
+<!-- can apply attributes dynamically -->
+<!-- <div id="{{title}}">
+  {{title}}
+</div> -->
+<!-- ------------------------------------->
+
+<!-- cli  -->
+<!-- ng generate component home -->
+<!-- ng g c home  -->
+
+<!-- inside folder -->
+<!-- ng g m auth -->
+<!-- ng g c auth/home -->
+<!-- ------------------------------------->
+
+<!-- insert component using selector  -->
+<!-- <app-user-component></app-user-component> -->
+<!-- ------------------------------------->
+
+<!-- inline styles  -->
+<!-- ng g c user-list --inline-style -->
+<!-- <app-user-list></app-user-list> -->
+
+
+<!-- inline template -->
+<!-- ng g c admin-list --inline-template -->
+<!-- <app-admin-list></app-admin-list> -->
+
+
+<!-- inline style and template -->
+<!-- ng g c users-list --inline-style --inline-template -->
+<!-- <app-users-list></app-users-list> -->
+<!-- ------------------------------------->
+
+<!-- module -- by combining different components -->
+<!-- create a module -- ng g module user-auth -->
+<!-- register this module inside app.module.ts -->
+
+<!-- needed to export from user-auth.module.ts -->
+<!-- <app-login></app-login> -->
+<!-- ------------------------------------->
+<!-- events  -->
+<!-- click  -->
+<!-- <button (click)="onSubmit('Sourabh')">
+    submit
+  </button> -->
+
+<!-- keyup-- after leaving key  -->
+<!-- <input type="text" #inputData1 (keyup)="consoleValue(inputData1.value)"> -->
+
+<!-- keydown-- after click  -->
+<!-- <input type="text" #inputData2 (keydown)="consoleValue(inputData2.value)"> -->
+
+<!-- blur -- after clicking outside input box -->
+<!-- <input type="text" #inputData3 (blur)="consoleValue(inputData3.value)"> -->
+
+<!-- input   -->
+<!-- <input type="text" #inputData4 (input)="consoleValue(inputData4.value)"> -->
+
+<!--  -- after click  -->
+<!-- <h1 (mouseover)="consoleValue('Hello world')">mouseover</h1> -->
+<!-- ------------------------------------->
+
+<!-- take value from input  -->
+<!-- template referance  -->
+<!-- <input type="text" #inputVal (keyup)="getValue(inputVal.value)">
+   <h2>{{takeInputValue}}</h2> -->
+
+<!-- on button click  -->
+<!-- <input type="text" #inputVal placeholder="enter text">
+<button (click)="getValue(inputVal.value)">print value</button> -->
+
+<!-- we can get value of any attribute e.g- placeholder  -->
+<!-- <button (click)="getValue(inputVal.placeholder)">print value</button> -->
+
+<!-- <h2>{{takeInputValue}}</h2> -->
+<!-- ------------------------------------->
+<!-- styling  -->
+<!-- priority -- 1.inline, internal, component, global css  -->
+<!-- <app-login></app-login> -->
+
+<!-- ------------------------------------->
+<!-- binding  -->
+<!-- to take boolean values from app.components.ts  -->
+
+<!-- interpolation -- will not work for boolean, works with strings and numeric values -->
+<!-- <input type="text" value="hello1" disabled={{isDisabled}}> -->
+<!-- binding -->
+<!-- <input type="text" value="hello2" [disabled]=isDisabled> -->
+<!-- ------------------------------------->
+
+<!-- if-else  -->
+
+<!-- only if  -->
+<!-- <h1 *ngIf="showData" >hello world</h1> -->
+
+<!-- if-else  -->
+<!-- <h1 *ngIf="showData else elseCondition" >hello world</h1>
+<ng-template #elseCondition>
+  <h1>else condition</h1>
+</ng-template> -->
+
+<!--another way of if-else  -->
+<!-- <h1 *ngIf="show==='yes';  then ifCondition else elseCondition" ></h1>
+<ng-template #ifCondition>
+  <h1>hello world</h1>
+</ng-template>
+<ng-template #elseCondition>
+  <h1>else condition</h1>
+</ng-template> -->
+
+<!-- if else-if   -->
+<!-- <ng-template [ngIf]="color==='red'">
+  <h1 style="background-color: red;">red condition </h1>
+</ng-template>
+
+<ng-template [ngIf]="color==='green'">
+  <h1 style="background-color: green;">green condition </h1>
+</ng-template>
+
+<ng-template [ngIf]="color==='blue'">
+  <h1 style="background-color: blue;">blue condition </h1>
+</ng-template> -->
+
+
+<!-- switch-case  -->
+<!-- dynamic style  -->
+
+<!-- <div [ngSwitch]="color">
+  <h1 *ngSwitchCase="'red'" [style.background-color]="color" [style.color]="font">red color</h1>
+  <h1 *ngSwitchCase="'green'" [style.background-color]="color" [style.color]="font">green color</h1>
+  <h1 *ngSwitchCase="'blue'" [style.background-color]="color" [style.color]="font">blue color</h1>
+  <h1 *ngSwitchDefault [style.background-color]="color" [style.color]="font">orange color</h1>
+</div>
+
+<button (click)="changeColor('skyblue')">change color</button> -->
+<!-- ------------------------------------->
+<!-- for loop  -->
+<!-- nested loop -->
+
+<!-- <ul *ngFor="let user of users">
+  <li>{{user.name}}</li>
+  <li>{{user.email}}</li>
+  <li>{{user.phone}}</li>
+  <li>
+    <ul *ngFor="let social of user.social">
+      <li>{{social}}</li>
+    </ul>
+  </li>
+</ul> -->
+<!-- ------------------------------------->
+<!-- toggle element  -->
+<!-- <button (click)="toggelValue()">toggle</button>
+<h1 *ngIf="showValue">Show data</h1> -->
+<!-- ------------------------------------->
+<!-- add bootstrap css in angular  -->
+<!-- ng add @ng-bootstrap/ng-bootstrap -->
+
+<!-- <ngb-alert [dismissible]="false">
+	<strong>Warning!</strong> Better check yourself, you're not looking too good.
+</ngb-alert>
+<div ngbAccordion>
+  <div ngbAccordionItem>
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>First</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>Content for the first item</ng-template>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- ------------------------------------->
+<!-- passing data from parent to child -->
+
+<!-- <app-child [childData]="parentData"></app-child>
+<button (click)="changeText()">change text</button> -->
+
+
+<!-- passing data from child to parent -->
+
+<!-- <app-child (getChildData)="getChildData($event)"></app-child> -->
+<!-- <button (click)="changeText()">change text</button> -->
+<!-- ------------------------------------->
+<!-- <ul *ngFor="let user of reusableUsers">
+  <li>
+    <app-reuse-child [item]="user"></app-reuse-child>
+  </li>
+  
+</ul> -->
+<!-- ------------------------------------->
+<!-- two way binding  -->
+<!-- need to import formModule -->
+<!-- <input type="text" [(ngModel)]="twoBindingName">
+
+<h2>{{twoBindingName}}</h2> -->
+<!-- ------------------------------------->
+<!-- pipes  -->
+<!-- <h1> {{pipeTitle}}</h1>
+<h1> {{pipeTitle | uppercase}}</h1>
+<h1> {{pipeTitle | lowercase}}</h1>
+<h1> {{pipeTitle | slice:3:7}}</h1> -->
+<!-- two pipes -->
+<!-- <h1> {{pipeTitle | slice:4 | uppercase}}</h1>
+
+<h1> {{userJson | json}}</h1>
+
+<h1>{{2345.2345 | number:"4.3-4"}}</h1>
+
+<h1>{{25| currency:"USD"}}</h1> -->
+
+<!-- date  -->
+<!-- <h1>{{pipeDate}}</h1>
+<h1>{{pipeDate | date}}</h1>
+<h1>{{pipeDate | date: 'fullDate'}}</h1> -->
+
+<!-- custome pipe  -->
+<!-- ng g pipe pipes/usdToInr -->
+<!-- update pipe.ts  -->
+
+<!-- <h1>{{20 | usdToInr:75}}</h1> -->
+
+
+<!-- ------------------------------------->
+<!-- template driven form  -->
+<!-- import form module in module.ts -->
+<!-- <app-form></app-form> -->
+
+<!-- reactive forms  -->
+<!-- <app-form></app-form> -->
+
+<!-- ------------------------------------->
+<!-- directives: to give additional properties to elements -->
+<!-- custome directive -- ng g directive redElm -->
+<!-- make changes in directive files -->
+<!-- <h1 appRedElm> {{ directiveElement}}</h1> -->
+
+<!-- ------------------------------------->
+<!-- Routing  -->
+<!-- use routerLink instead of href  -->
+<!-- add router-outlet tag  -->
+<!-- <h1>Rounting</h1>
+<a routerLink="home">Home</a> &nbsp;
+<a routerLink="about">about</a>&nbsp;
+<a routerLink="users">users</a>&nbsp;
+<a routerLink="contact">contact</a> -->
+
+<!-- dynamic routing -->
+<!-- add private route: ActivatedRoute in user.components.ts -->
+<!-- <a routerLink="users/1">user1</a>
+<a routerLink="users/2">user2</a>
+<router-outlet></router-outlet> -->
+
+<!-- ------------------------------------->
+<!-- services  -->
+<!-- services are classes that provide functionality or data that can be shared across different parts of an application. Services enable separation of concerns, making the code more modular, reusable, and easier to test. They are typically used for tasks like data fetching, business logic, or shared state management. -->
+
+<!-- ng g service services/userData -->
+
+<!-- take users in constructor of component.ts  -->
+
+<!-- <app-header></app-header>
+<app-footer></app-footer> -->
+
+<!-- ------------------------------------->
+<!-- get data from API  -->
+<!-- make service for it -- e.g:users-service and import HttpClient in it-->
+<!-- imports HttpClientModule in app.module.ts and update service file -->
+
+<!-- <table class="update-table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>userId</th>
+        <th>title</th>
+        <th>completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product?.id}}</td>
+        <td>{{product?.userId}}</td>
+        <td>{{product?.title}}</td>
+        <td>{{product?.completed}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+
+<!-- post data  -->
+
+<!-- <form action="" #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
+    <input type="number" name="id" placeholder="id" ngModel> <br/><br/>
+    <input type="number" name="userId" placeholder="userId" ngModel><br/><br/>
+    <input type="text" name="title" placeholder="title" ngModel><br/><br/>
+    <input type="text" name="completed" placeholder="isCompleted" ngModel>
+    <button>Add new user</button>
+  </form> -->
+
+<!-- ------------------------------------->
+<!-- module routing  -->
+<!-- ng g m admin --routing -->
+<!-- ng g c admin -->
+<!-- imports in app.module.ts -->
+
+<!-- <ul>
+  <li><a routerLink="login">login</a></li>
+  <li><a routerLink="list">list</a></li>
+</ul>
+<router-outlet></router-outlet> -->
+
+<!-- ------------------------------------->
+<!-- group routing  -->
+<!-- ng g m subadmin --routing -->
+<!-- <h1>Admin route</h1>
+<ul>
+  <li><a routerLink="admin/login">login</a></li>
+  <li><a routerLink="admin/list">list</a></li>
+</ul>
+
+<h1>SubAdmin route</h1>
+<ul>
+  <li><a routerLink="subadmin/login">login</a></li>
+  <li><a routerLink="subadmin/list">list</a></li>
+</ul>
+
+<router-outlet></router-outlet> -->
+
+
+<!-- ------------------------------------->
+<!-- lazy loading  -->
+<!-- dont import module in anywhere (not in app.module.ts) like before  -->
+
+ <!--<ul>
+  <li><a routerLink="superadmin/login">login</a></li>
+  <li><a routerLink="superadmin/list">list</a></li>
+</ul>
+<router-outlet></router-outlet>  -->
+
+<!-- ------------------------------------->

@@ -1,0 +1,9 @@
+
+<!-- parent to child  -->
+<!-- <p>child works!</p>
+<h3>Data from parent: {{ childData }}</h3> -->
+
+
+<!-- child to parent  -->
+<input type="text" #inputData>
+<button (click)="getChildData.emit(inputData.value)">Update data</button>

@@ -1,0 +1,35 @@
+.main-box {
+    display: flex;
+    background-color: wheat;
+    min-height: 100vh;
+}
+
+.sub-box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    gap: 5px;
+    padding: 10px;
+    width: 15%;
+    background-color: white;
+
+
+}
+
+.sub-box2 {
+    background-color: rgb(215, 189, 189);
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid black;
+}
