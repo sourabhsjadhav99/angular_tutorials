@@ -266,6 +266,8 @@
 
 
 <!-- ------------------------------------->
+ <!-- in user-auth  -->
+  
 <!-- template driven form  -->
 <!-- import form module in module.ts -->
 <!-- <app-form></app-form> -->
@@ -275,26 +277,35 @@
 
 <!-- ------------------------------------->
 <!-- directives: to give additional properties to elements -->
+<!-- to modify dom    -->
+
 <!-- custome directive -- ng g directive redElm -->
 <!-- make changes in directive files -->
 <!-- <h1 appRedElm> {{ directiveElement}}</h1> -->
 
 
+<!-- to pass data to directive -->
+<!-- <h1 appRedElm colorPassedFromElmToDirective="blue"> {{ directiveElement}}</h1> -->
+
 <!-- ------------------------------------->
 <!-- Routing  -->
 <!-- use routerLink instead of href  -->
 <!-- add router-outlet tag  -->
-<!-- <h1>Rounting</h1>
+<h1>Rounting</h1>
 <a routerLink="home">Home</a> &nbsp;
 <a routerLink="about">about</a>&nbsp;
 <a routerLink="users">users</a>&nbsp;
-<a routerLink="contact">contact</a> -->
+<a routerLink="contact">contact</a>
+
+<router-outlet></router-outlet>
 
 <!-- dynamic routing -->
 <!-- add private route: ActivatedRoute in user.components.ts -->
 <!-- <a routerLink="users/1">user1</a>
 <a routerLink="users/2">user2</a>
 <router-outlet></router-outlet> -->
+
+
 
 <!-- ------------------------------------->
 <!-- services  -->
@@ -383,3 +394,12 @@
 <router-outlet></router-outlet>  -->
 
 <!-- ------------------------------------->
+
+
+<!-- <h1>Named Outlet Example</h1> -->
+
+<!-- Main content will be rendered here by the default outlet -->
+<!-- <router-outlet></router-outlet> -->
+
+<!-- Sidebar will be rendered here by the named outlet -->
+<!-- <router-outlet name="outlet1"></router-outlet> -->

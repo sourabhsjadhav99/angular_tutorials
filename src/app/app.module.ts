@@ -13,7 +13,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserAuthModule } from './user-auth/user-auth.module';
 import { ChildComponent } from './child/child.component';
 import { ReuseChildComponent } from './reuse-child/reuse-child.component';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { UsdToInrPipe } from './pipes/usd-to-inr.pipe';
 import { RedElmDirective } from './directives/red-elm.directive';
 import { AboutComponent } from './about/about.component';
@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { SubadminModule } from './subadmin/subadmin.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SubadminModule } from './subadmin/subadmin.module';
     AboutServicesComponent,
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { SubadminModule } from './subadmin/subadmin.module';
     HttpClientModule, // for fetching data
     AdminModule, // for module routing
     SubadminModule, // e.g for group routing
+    ReactiveFormsModule // for reactive form
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,33 +1,283 @@
 <!-- need to give ngModel  -->
 
 <!-- teplate forms  -->
-<!-- add formModule in module.ts -->
+<!-- import formModule in module.ts -->
 <!-- <form #basicForm="ngForm" (ngSubmit)="getFormData(basicForm.value)">
     <input type="text" ngModel name="name" placeholder="name"><br/><br/>
     <input type="email" ngModel name="email" placeholder="email"><br/><br/>
     <input type="password" ngModel name="password" placeholder="password"><br/><br/>
     <button>click</button>
     
-  </form>
+  </form> -->
+
+<!-- touched, untouched, valid, dirty(when we start entering data it return true, before it returns false), pristine (when we start entering data it return false, before it returns true) -->
+<!-- bootstrap classes --  is-invalid,  -->
+
+<!-- <p>{{ basicForm.value.name }}</p> -->
+
+<!-- <p >{{ formData.email }}</p>  -->
+
+<!-- <p>{{formData | json}}</p> -->
 
 
-  <h1>{{ basicForm.value.name }}</h1>
-
-  <h1 >{{ formData.email }}</h1>  -->
-
-
-  <!-- reactive forms  -->
-   <!-- add reactive form module in module.ts  -->
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+<!-- reactive forms  -->
+<!-- add reactive form module in module.ts  -->
+<!-- <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
     <input type="text" name="name" placeholder="name" formControlName="name">
     <small *ngIf="name && name.invalid && name.touched" style="color: red;">name is required</small><br/><br/>
     <input type="email" name="email" placeholder="email" formControlName="email">
     <small *ngIf="email && email.invalid && email.touched" style="color: red;">email is required</small><br/><br/>
     <input type="password" name="password" placeholder="password" formControlName="password"><br/><br/>
     <small *ngIf="password && password.invalid && password.touched" style="color: red;">password is required</small>
-    <button [disabled]="loginForm.invalid">click</button>
-    
-  </form>
+    <button [disabled]="loginForm.invalid">click</button>  
+  </form> -->
 
 
+<!-- <div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input
+          type="text"
+          formControlName="fullname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted &&  f['fullname'].errors} "
+        />
+        <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+          <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+        </div>
+      </div>
   
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          formControlName="username"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+        />
+        <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+          <div *ngIf="f['username'].errors['required']">Username is required</div>
+          <div *ngIf="f['username'].errors['minlength']">
+            Username must be at least 6 characters
+          </div>
+          <div *ngIf="f['username'].errors['maxlength']">
+            Username must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+          <div *ngIf="f['password'].errors['required']">Password is required</div>
+          <div *ngIf="f['password'].errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+          <div *ngIf="f['password'].errors['maxlength']">
+            Username must not exceed 40 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+        />
+        <div
+          *ngIf="submitted && f['confirmPassword'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['confirmPassword'].errors['required']">
+            Confirm Password is required
+          </div>
+          <div *ngIf="f['confirmPassword'].errors['matching']">
+            Confirm Password does not match
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group form-check">
+        <input
+          type="checkbox"
+          formControlName="acceptTerms"
+          class="form-check-input"
+          [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+        />
+        <label for="acceptTerms" class="form-check-label"
+          >I have read and agree to the Terms</label
+        >
+        <div
+          *ngIf="submitted && f['acceptTerms'].errors"
+          class="invalid-feedback"
+        >
+          Accept Terms is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div> -->
+
+
+
+<div class="register-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="fullname">Full Name</label>
+      <input id="fullname" type="text" formControlName="fullname" class="form-control"
+        [ngClass]="{ 'is-invalid': (f['fullname'].touched || submitted) && f['fullname'].errors }" />
+      <div *ngIf="(f['fullname'].touched || submitted) && f['fullname'].errors" class="invalid-feedback">
+        <div *ngIf="f['fullname'].errors['required']">Full Name is required</div>
+      </div>
+    </div>
+
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" type="text" formControlName="username" class="form-control"
+        [ngClass]="{ 'is-invalid': (f['username'].touched || submitted) && f['username'].errors }" />
+      <div *ngIf="(f['username'].touched || submitted) && f['username'].errors" class="invalid-feedback">
+        <div *ngIf="f['username'].errors['required']">Username is required</div>
+        <div *ngIf="f['username'].errors['minlength']">Username must be at least 6 characters</div>
+        <div *ngIf="f['username'].errors['maxlength']">Username must not exceed 20 characters</div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="text" formControlName="email" class="form-control"
+        [ngClass]="{ 'is-invalid': (f['email'].touched || submitted) && f['email'].errors }" />
+      <div *ngIf="(f['email'].touched || submitted) && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['required']">Email is required</div>
+        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" class="form-control"
+        [ngClass]="{ 'is-invalid': (f['password'].touched || submitted) && f['password'].errors }" />
+      <div *ngIf="(f['password'].touched || submitted) && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+        <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+        <div *ngIf="f['password'].errors['maxlength']">Password must not exceed 40 characters</div>
+      </div>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control"
+        [ngClass]="{ 'is-invalid': (f['confirmPassword'].touched || submitted) && f['confirmPassword'].errors }" />
+      <div *ngIf="(f['confirmPassword'].touched || submitted) && f['confirmPassword'].errors" class="invalid-feedback">
+        <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+        <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords must match</div>
+      </div>
+    </div>
+
+    <!-- Gender (Radio Buttons) -->
+    <div class="form-group">
+      <label>Gender</label>
+      <div *ngFor="let gender of genders">
+        <input type="radio" [value]="gender" formControlName="gender"
+          [ngClass]="{ 'is-invalid': (f['gender'].touched || submitted) && f['gender'].errors }" />
+        {{ gender }}
+      </div>
+      <div *ngIf="(f['gender'].touched || submitted) && f['gender'].errors" class="invalid-feedback">
+        Gender is required
+      </div>
+    </div>
+
+    <!-- Country (Dropdown) -->
+    <div class="form-group">
+      <label for="country">Country</label>
+      <select id="country" formControlName="country" class="form-control"
+        [ngClass]="{ 'is-invalid': (f['country'].touched || submitted) && f['country'].errors }">
+        <option value="" disabled>Select your country</option>
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+      <div *ngIf="(f['country'].touched || submitted) && f['country'].errors" class="invalid-feedback">
+        Country is required
+      </div>
+    </div>
+
+    <!-- Preferences (Checkboxes) -->
+    <div class="form-group">
+      <label>Preferences</label>
+      <div>
+        <input type="checkbox" class="form-check-input" formControlName="newsletters" [formGroupName]="'preferences'" />
+        Subscribe to Newsletters
+      </div>
+      <div>
+        <input type="checkbox" class="form-check-input" formControlName="updates" [formGroupName]="'preferences'" />
+        Receive Updates
+      </div>
+      <div>
+        <input type="checkbox" class="form-check-input" formControlName="promotions" [formGroupName]="'preferences'" />
+        Receive Promotions
+      </div>
+    </div>
+
+    <!-- Accept Terms -->
+    <div class="form-group form-check">
+      <input id="acceptTerms" type="checkbox" class="form-check-input" formControlName="acceptTerms" class="form-check-input"
+        [ngClass]="{ 'is-invalid': (f['acceptTerms'].touched || submitted) && f['acceptTerms'].errors }" />
+      <label for="acceptTerms" class="form-check-label">
+        I have read and agree to the Terms
+      </label>
+      <div *ngIf="(f['acceptTerms'].touched || submitted) && f['acceptTerms'].errors" class="invalid-feedback">
+        Accepting Terms is required
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <!-- <div class="form-group">
+      <button type="submit" class="btn btn-primary">Register</button>
+      <button type="button" class="btn btn-warning float-right" (click)="onReset()">
+        Reset
+      </button>
+    </div> -->
+
+    <!-- to disable button until all fields are filled  -->
+    <div class="form-group">
+      <button [class.disabled]="form.invalid" type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>

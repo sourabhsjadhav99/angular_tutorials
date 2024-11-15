@@ -1,1 +1,4 @@
-<h2 class="change-bg">user-list works!</h2>
+<ul *ngFor="let user of users">
+    <button (click)="userClick(user)">{{user.name}}</button>
+  
+  </ul>

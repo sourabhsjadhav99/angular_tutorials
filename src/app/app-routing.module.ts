@@ -9,14 +9,17 @@ import { UsersComponent } from './users/users.component';
 import { NopageComponent } from './nopage/nopage.component';
 import { AboutCompanyComponent } from './about/about-company/about-company.component';
 import { AboutServicesComponent } from './about/about-services/about-services.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
-  // {path:"", component:UserComponentComponent},
-  // {path:"main", component:MainpageComponent}
 
+  // routing 
+  {path:"", component:UserComponentComponent},
+  {path:"main", component:MainpageComponent},
 
-  
-  // {path:"home", component:HomeComponent},
+  // nested routing 
+  {path:"home", component:HomeComponent},
   // {path:"about",
   //   component:AboutComponent,
   //   children: [
@@ -25,18 +28,40 @@ const routes: Routes = [
 
   //   ]
   // },
-  // {path:"contact", component:ContactComponent},
-  // {path:"users/:id", component:UsersComponent},
+  {path:"contact", component:ContactComponent},
+  {path:"users", component:UserListComponent},
+  {path:"users/:id/:name", component:UsersComponent},
   // {path:"**", component:NopageComponent},
-  {
-    path: 'superadmin',
-    loadChildren: () =>
-      import('./superadmin/superadmin.module').then((mod) => mod.SuperadminModule), // Ensure you return the module here
-  },
+
+
+  // lazy loading 
+  // {
+  //   path: 'superadmin',
+  //   loadChildren: () =>
+  //     import('./superadmin/superadmin.module').then((mod) => mod.SuperadminModule), // Ensure you return the module here
+  // },
+
+
+  // named routes 
+  // {
+  //   path: '',
+  //   component: MainpageComponent,
+  //   children: [
+  //     {
+  //       path: 'home',
+  //       component: HomeComponent,
+  //     },
+  //     {
+  //       path: 'sidebar',
+  //       component: SidebarComponent,
+  //       outlet: 'outlet1',
+  //     },
+  //   ],
+  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
