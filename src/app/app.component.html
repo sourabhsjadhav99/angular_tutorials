@@ -128,12 +128,20 @@
 
 <h1 [style.color]="conditionalColor()">Lorem ipsum dolor sit amet consectetur adipisicing.</h1> -->
 <!-- ------------------------------------->
+<!-- ng template -- it is angular element so it will not render in dom unless it have conditipn and condition need to true -->
+<!-- cant apply * on ng-template need to use []  -->
+<ng-template [ngIf]=""></ng-template>
 
+<ng-template ngFor let-elm [ngForOf]="users" let-i="index">
+  {{elm.name}}
+</ng-template>
+
+<!-- ------------------------------------->
 <!-- only if  -->
 <!-- <h1 *ngIf="showData" >hello world</h1> -->
 
 <!-- if-else  -->
-<!-- <h1 *ngIf="showData else elseCondition" >hello world</h1>
+<!-- <h1 *ngIf="showData; else elseCondition" >hello world</h1>
 <ng-template #elseCondition>
   <h1>else condition</h1>
 </ng-template> -->
@@ -266,8 +274,8 @@
 
 
 <!-- ------------------------------------->
- <!-- in user-auth  -->
-  
+<!-- in user-auth  -->
+
 <!-- template driven form  -->
 <!-- import form module in module.ts -->
 <!-- <app-form></app-form> -->
@@ -291,13 +299,26 @@
 <!-- Routing  -->
 <!-- use routerLink instead of href  -->
 <!-- add router-outlet tag  -->
-<h1>Rounting</h1>
+<!-- <h1>Rounting</h1>
 <a routerLink="home">Home</a> &nbsp;
-<a routerLink="about">about</a>&nbsp;
-<a routerLink="users">users</a>&nbsp;
-<a routerLink="contact">contact</a>
+<a routerLink="about">about</a>&nbsp; -->
 
-<router-outlet></router-outlet>
+<!-- implimented absolute path inside userComponent.html -->
+<!-- <a routerLink="users">users</a>&nbsp;  -->
+
+<!-- back button inside contactComponent -->
+<!-- <a routerLink="contact">contact</a>&nbsp;  -->
+
+
+<!-- named outlet  -->
+<!-- <a routerLink="courses">Courses</a>&nbsp; 
+
+<a [routerLink]="[{outlets:{'course-details':['courseDetails']}}]">Course Details</a>&nbsp; 
+
+<router-outlet></router-outlet> -->
+
+<!-- named outlet -->
+<!-- <router-outlet name="course-details"></router-outlet> -->
 
 <!-- dynamic routing -->
 <!-- add private route: ActivatedRoute in user.components.ts -->
@@ -394,12 +415,19 @@
 <router-outlet></router-outlet>  -->
 
 <!-- ------------------------------------->
+<!-- ng-content -- dynamic component -->
+<!-- creating cards -->
 
+<!-- <div class="container ">
+  <div class="row">
+    <div class="col-4">
+      <app-cards *ngFor="let course of courses">
+        <h5 class="card-title">{{course.title}}</h5>
+        <p class="card-text">{{course.description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </app-cards>
+    </div>
+  </div>
+</div> -->
 
-<!-- <h1>Named Outlet Example</h1> -->
-
-<!-- Main content will be rendered here by the default outlet -->
-<!-- <router-outlet></router-outlet> -->
-
-<!-- Sidebar will be rendered here by the named outlet -->
-<!-- <router-outlet name="outlet1"></router-outlet> -->
+<!-- ------------------------------------->

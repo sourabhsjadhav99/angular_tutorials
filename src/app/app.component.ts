@@ -136,4 +136,15 @@ export class AppComponent {
   getUserFormData(data: any) {
     this.productData.sendData(data).subscribe((data) => console.log(data));
   }
+
+
+
+  // ng-content dynamic components 
+
+  courses=[
+    {title:"Python", description:"this is python course"},
+    {title:"Angular", description:"this is angular course"},
+    {title:"React", description:"this is react course"},
+    {title:"Node", description:"this is node course"}
+  ]
 }

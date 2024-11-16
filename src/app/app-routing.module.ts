@@ -11,6 +11,8 @@ import { AboutCompanyComponent } from './about/about-company/about-company.compo
 import { AboutServicesComponent } from './about/about-services/about-services.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 const routes: Routes = [
 
@@ -20,18 +22,22 @@ const routes: Routes = [
 
   // nested routing 
   {path:"home", component:HomeComponent},
-  // {path:"about",
-  //   component:AboutComponent,
-  //   children: [
-  //     {path:"company", component: AboutCompanyComponent},
-  //     {path:"services", component:AboutServicesComponent},
+  {path:"about",
+    component:AboutComponent,
+    children: [
+      {path:"company", component: AboutCompanyComponent},
+      {path:"services", component:AboutServicesComponent},
 
-  //   ]
-  // },
+    ]
+  },
   {path:"contact", component:ContactComponent},
   {path:"users", component:UserListComponent},
   {path:"users/:id/:name", component:UsersComponent},
-  // {path:"**", component:NopageComponent},
+
+  {path:"courses", component:CoursesComponent},
+
+  {path:"courseDetails", outlet:'course-details', component:CourseDetailsComponent},
+  {path:"**", component:NopageComponent},
 
 
   // lazy loading 
@@ -42,22 +48,7 @@ const routes: Routes = [
   // },
 
 
-  // named routes 
-  // {
-  //   path: '',
-  //   component: MainpageComponent,
-  //   children: [
-  //     {
-  //       path: 'home',
-  //       component: HomeComponent,
-  //     },
-  //     {
-  //       path: 'sidebar',
-  //       component: SidebarComponent,
-  //       outlet: 'outlet1',
-  //     },
-  //   ],
-  // },
+
 ];
 
 @NgModule({

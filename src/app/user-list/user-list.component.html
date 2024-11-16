@@ -1,4 +1,4 @@
 <ul *ngFor="let user of users">
-    <button (click)="userClick(user)">{{user.name}}</button>
+    <li class="list-group-item text-white bg-dark" (click)="userClick(user)" [class.active]="isSelected(user)">{{user.name}}</li>
   
   </ul>

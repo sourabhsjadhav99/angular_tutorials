@@ -28,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { SubadminModule } from './subadmin/subadmin.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
+import { CardsComponent } from './cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    CoursesComponent,
+    CourseDetailsComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,

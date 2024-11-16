@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
   ]
 })
 export class UserListComponent {
-
-  constructor(private router: Router) {
+  userId: any | null = '';
+  userName: string | null = '';
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     
   }
   users = [
@@ -41,4 +42,17 @@ export class UserListComponent {
     this.router.navigate(['/users', user.id, user.name]);
   }
 
+  ngOnInit(): void {
+   
+    // other way -- better way than snapshot
+    this.activatedRoute.paramMap.subscribe((params:ParamMap) => {
+      this.userId = params.get('id');
+      this.userName = params.get('name');
+    });
+  }
+
+  isSelected(employee:any){
+    return parseInt(employee.id) === parseInt(this.userId)
+
+  }
 }
