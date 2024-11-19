@@ -17,27 +17,27 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 const routes: Routes = [
 
   // routing 
-  {path:"", component:UserComponentComponent},
-  {path:"main", component:MainpageComponent},
+  // {path:"", component:UserComponentComponent},
+  // {path:"main", component:MainpageComponent},
 
   // nested routing 
-  {path:"home", component:HomeComponent},
-  {path:"about",
-    component:AboutComponent,
-    children: [
-      {path:"company", component: AboutCompanyComponent},
-      {path:"services", component:AboutServicesComponent},
+  // {path:"home", component:HomeComponent},
+  // {path:"about",
+  //   component:AboutComponent,
+  //   children: [
+  //     {path:"company", component: AboutCompanyComponent},
+  //     {path:"services", component:AboutServicesComponent},
 
-    ]
-  },
-  {path:"contact", component:ContactComponent},
-  {path:"users", component:UserListComponent},
-  {path:"users/:id/:name", component:UsersComponent},
+  //   ]
+  // },
+  // {path:"contact", component:ContactComponent},
+  // {path:"users", component:UserListComponent},
+  // {path:"users/:id/:name", component:UsersComponent},
 
-  {path:"courses", component:CoursesComponent},
+  // {path:"courses", component:CoursesComponent},
 
-  {path:"courseDetails", outlet:'course-details', component:CourseDetailsComponent},
-  {path:"**", component:NopageComponent},
+  // {path:"courseDetails", outlet:'course-details', component:CourseDetailsComponent},
+  // {path:"**", component:NopageComponent},
 
 
   // lazy loading 
