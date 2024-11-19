@@ -2,22 +2,22 @@
 
 <!-- teplate forms  -->
 <!-- import formModule in module.ts -->
-<form #basicForm="ngForm" (ngSubmit)="getFormData(basicForm.value)">
+<!-- <form #basicForm="ngForm" (ngSubmit)="getFormData(basicForm.value)">
     <input type="text" ngModel name="name" placeholder="name"><br/><br/>
     <input type="email" ngModel name="email" placeholder="email"><br/><br/>
     <input type="password" ngModel name="password" placeholder="password"><br/><br/>
     <button>click</button>
     
-  </form>
+  </form> -->
 
 <!-- touched, untouched, valid, dirty(when we start entering data it return true, before it returns false), pristine (when we start entering data it return false, before it returns true) -->
 <!-- bootstrap classes --  is-invalid,  -->
 
-<!-- <p>{{ basicForm.value.name }}</p> -->
+<!-- <p>{{ basicForm.value.name }}</p>
 
 <p >{{ formData.email }}</p> 
 
-<p>{{formData | json}}</p>
+<p>{{formData | json}}</p> -->
 
 
 <!-- reactive forms  -->
@@ -154,9 +154,9 @@
 
 
 
-<!-- <div class="register-form">
+<div class="register-form">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    
+    <!-- Full Name -->
     <div class="form-group">
       <label for="fullname">Full Name</label>
       <input id="fullname" type="text" formControlName="fullname" class="form-control"
@@ -166,6 +166,7 @@
       </div>
     </div>
 
+    <!-- Username -->
     <div class="form-group">
       <label for="username">Username</label>
       <input id="username" type="text" formControlName="username" class="form-control"
@@ -177,6 +178,7 @@
       </div>
     </div>
 
+    <!-- Email -->
     <div class="form-group">
       <label for="email">Email</label>
       <input id="email" type="text" formControlName="email" class="form-control"
@@ -187,7 +189,7 @@
       </div>
     </div>
 
-
+    <!-- Password -->
     <div class="form-group">
       <label for="password">Password</label>
       <input id="password" type="password" formControlName="password" class="form-control"
@@ -199,7 +201,7 @@
       </div>
     </div>
 
-
+    <!-- Confirm Password -->
     <div class="form-group">
       <label for="confirmPassword">Confirm Password</label>
       <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control"
@@ -210,6 +212,7 @@
       </div>
     </div>
 
+    <!-- Gender (Radio Buttons) -->
     <div class="form-group">
       <label>Gender</label>
       <div *ngFor="let gender of genders">
@@ -222,6 +225,7 @@
       </div>
     </div>
 
+    <!-- Country (Dropdown) -->
     <div class="form-group">
       <label for="country">Country</label>
       <select id="country" formControlName="country" class="form-control"
@@ -234,7 +238,7 @@
       </div>
     </div>
 
-
+    <!-- Preferences (Checkboxes) -->
     <div class="form-group">
       <label>Preferences</label>
       <div>
@@ -251,6 +255,7 @@
       </div>
     </div>
 
+    <!-- Accept Terms -->
     <div class="form-group form-check">
       <input id="acceptTerms" type="checkbox" class="form-check-input" formControlName="acceptTerms" class="form-check-input"
         [ngClass]="{ 'is-invalid': (f['acceptTerms'].touched || submitted) && f['acceptTerms'].errors }" />
@@ -262,16 +267,17 @@
       </div>
     </div>
 
-
-    <div class="form-group">
+    <!-- Buttons -->
+    <!-- <div class="form-group">
       <button type="submit" class="btn btn-primary">Register</button>
       <button type="button" class="btn btn-warning float-right" (click)="onReset()">
         Reset
       </button>
-    </div>
+    </div> -->
 
+    <!-- to disable button until all fields are filled  -->
     <div class="form-group">
       <button [class.disabled]="form.invalid" type="submit" class="btn btn-primary">Register</button>
     </div>
   </form>
-</div> -->
+</div>
