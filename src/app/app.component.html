@@ -33,11 +33,9 @@
 <!-- ng g c user-list --inline-style -->
 <!-- <app-user-list></app-user-list> -->
 
-
 <!-- inline template -->
 <!-- ng g c admin-list --inline-template -->
 <!-- <app-admin-list></app-admin-list> -->
-
 
 <!-- inline style and template -->
 <!-- ng g c users-list --inline-style --inline-template -->
@@ -98,8 +96,7 @@
 <!-- interpolation --  static properties (attributes) (initialised once) will not work for boolean and readonly values, works with strings and numeric values -->
 <!-- <input type="text" value="hello1" disabled={{isDisabled}}> -->
 <!-- binding -->
-<!-- <input type="text" value="hello2" [disabled]=isDisabled> -->
-
+<!-- <input type="text" value="hello2" [disabled]="isDisabled"> -->
 
 <!-- class binding  -->
 <!-- <h1 [className]="'change-bg change-text'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, maiores///!</h1>
@@ -109,10 +106,8 @@
 <!-- when conditionalClass true, class will applied  -->
 <!-- <h1 [class.change-bg]="conditionalClass">Lorem ipsum dolor sit amet.</h1> -->
 
-
 <!-- through function  -->
 <!-- <h1 [class]="conditionalClassfun()">Lorem ipsum dolor sit amet.</h1> -->
-
 
 <!-- ngClass  -->
 <!-- <h1 [ngClass]="'change-bg change-text'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas.</h1>
@@ -120,8 +115,6 @@
 <h1 [ngClass]="['change-bg', 'change-text']">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas.</h1>
 
 <h1 [ngClass]="{'change-bg':true, 'change-text':false}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas.</h1> -->
-
-
 
 <!-- style  -->
 <!-- <h1 [style]="'background-color:blue; color:red'">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
@@ -170,7 +163,6 @@
 <ng-template [ngIf]="color==='blue'">
   <h1 style="background-color: blue;">blue condition </h1>
 </ng-template> -->
-
 
 <!-- switch-case  -->
 <!-- dynamic style  -->
@@ -229,13 +221,12 @@
 <!-- <app-child [childData]="parentData"></app-child>
 <button (click)="changeText()">change text</button> -->
 
-
-
 <!-- passing data from child to parent -->
 <!-- add output decorator in child's component.ts  -->
 
 <!-- <app-child (dataEmitter)="receiveData($event)"></app-child>
 <p>Data from child: {{ dataFromChild }}</p> -->
+
 <!-- ------------------------------------->
 <!-- <ul *ngFor="let user of reusableUsers">
   <li>
@@ -275,7 +266,6 @@
 
 <!-- <h1>{{20 | usdToInr:75}}</h1> -->
 
-
 <!-- ------------------------------------->
 <!-- in user-auth  -->
 
@@ -294,7 +284,6 @@
 <!-- make changes in directive files -->
 <!-- <h1 appRedElm> {{ directiveElement}}</h1> -->
 
-
 <!-- to pass data to directive -->
 <!-- <h1 appRedElm colorPassedFromElmToDirective="blue"> {{ directiveElement}}</h1> -->
 
@@ -306,12 +295,11 @@
 <a routerLink="home">Home</a> &nbsp;
 <a routerLink="about">about</a>&nbsp; -->
 
-<!-- implimented absolute path inside userComponent.html -->
+<!-- implimented absolute path inside usersComponent.html -->
 <!-- <a routerLink="users">users</a>&nbsp;  -->
 
 <!-- back button inside contactComponent -->
 <!-- <a routerLink="contact">contact</a>&nbsp;  -->
-
 
 <!-- named outlet  -->
 <!-- <a routerLink="courses">Courses</a>&nbsp; 
@@ -328,8 +316,6 @@
 <!-- <a routerLink="users/1">user1</a>
 <a routerLink="users/2">user2</a>
 <router-outlet></router-outlet> -->
-
-
 
 <!-- ------------------------------------->
 <!-- services  -->
@@ -366,7 +352,6 @@
     </tbody>
   </table> -->
 
-
 <!-- post data  -->
 
 <!-- <form action="" #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
@@ -402,20 +387,19 @@
 <ul>
   <li><a routerLink="subadmin/login">login</a></li>
   <li><a routerLink="subadmin/list">list</a></li>
-</ul>
+</ul> 
 
 <router-outlet></router-outlet> -->
-
 
 <!-- ------------------------------------->
 <!-- lazy loading  -->
 <!-- dont import module in anywhere (not in app.module.ts) like before  -->
 
-<!--<ul>
+<!-- <ul>
   <li><a routerLink="superadmin/login">login</a></li>
   <li><a routerLink="superadmin/list">list</a></li>
 </ul>
-<router-outlet></router-outlet>  -->
+<router-outlet></router-outlet> -->
 
 <!-- ------------------------------------->
 <!-- ng-content -- dynamic component -->

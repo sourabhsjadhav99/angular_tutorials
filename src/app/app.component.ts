@@ -1,28 +1,40 @@
-import { Component } from '@angular/core';
-import { UserDataService } from './services/user-data.service';
-import { ProductsDataService } from './services/products-data.service';
-import { Router } from '@angular/router';
+import {Component,OnInit} from '@angular/core';
+import {UserDataService} from './services/user-data.service';
+import {ProductsDataService} from './services/products-data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   products: any = [];
   public conditionalClass: boolean = true;
-  constructor(private productData: ProductsDataService, private router:Router) {
+  constructor(private productData: ProductsDataService,private router: Router) {
+  }
+
+
+  ngOnInit(): void {
+    // Calling the getData() method to fetch data
     this.productData.getData().subscribe(
       (response) => {
+        // Handle the successful response
         this.products = response;
-        console.log(response);
+        console.log('Fetched Data:',this.products);
       },
-
       (error) => {
-        console.error(error);
+        // Handle any error that occurs during the request
+        console.error('Error fetching data:',error);
       }
     );
+
+
+
+
   }
+
+
 
   title = 'user-app';
 
@@ -55,7 +67,7 @@ export class AppComponent {
   show: string = 'yes';
 
   // if else-if, dynamic style
-  color: string = 'orange';
+  color: string = 'red';
   font: string = 'white';
 
   changeColor(newColor: string) {
@@ -68,14 +80,14 @@ export class AppComponent {
       name: 'Sourabh',
       email: 'sourabh@gmail.com',
       phone: 9456789,
-      social: ['facebook', 'twitter'],
+      social: ['facebook','twitter'],
     },
     {
       id: 2,
       name: 'Ankit',
       email: 'ankit@gmail.com',
       phone: 9876543,
-      social: ['facebook', 'whatsapp'],
+      social: ['facebook','whatsapp'],
     },
     {
       id: 3,
@@ -107,9 +119,9 @@ export class AppComponent {
 
   // reusable component
   reusableUsers = [
-    { name: 'Sourabh', email: 'sourabh@gmail.com', phone: 9456789 },
-    { name: 'Ankit', email: 'ankit@gmail.com', phone: 9876543 },
-    { name: 'Shubham', email: 'shubham@gmail.com', phone: 8765432 },
+    {name: 'Sourabh',email: 'sourabh@gmail.com',phone: 9456789},
+    {name: 'Ankit',email: 'ankit@gmail.com',phone: 9876543},
+    {name: 'Shubham',email: 'shubham@gmail.com',phone: 8765432},
   ];
 
   // two way binding
@@ -134,18 +146,30 @@ export class AppComponent {
 
   // post data
   getUserFormData(data: any) {
-    this.productData.sendData(data).subscribe((data) => console.log(data));
+    // this.productData.sendData(data).subscribe((data) => console.log(data));
+
+    // Example of sending data using the sendData() method (POST request)
+    this.productData.sendData(data).subscribe(
+      (response) => {
+        // Handle successful response after sending data
+        console.log('Data sent successfully:',response);
+      },
+      (error) => {
+        // Handle error while sending data
+        console.error('Error sending data:',error);
+      }
+    );
   }
 
 
 
   // ng-content dynamic components 
 
-  courses=[
-    {title:"Python", description:"this is python course"},
-    {title:"Angular", description:"this is angular course"},
-    {title:"React", description:"this is react course"},
-    {title:"Node", description:"this is node course"}
+  courses = [
+    {title: "Python",description: "this is python course"},
+    {title: "Angular",description: "this is angular course"},
+    {title: "React",description: "this is react course"},
+    {title: "Node",description: "this is node course"}
   ]
 }
 

@@ -41,11 +41,11 @@ const routes: Routes = [
 
 
   // lazy loading 
-  // {
-  //   path: 'superadmin',
-  //   loadChildren: () =>
-  //     import('./superadmin/superadmin.module').then((mod) => mod.SuperadminModule), // Ensure you return the module here
-  // },
+  {
+    path: 'superadmin',
+    loadChildren: () =>
+      import('./superadmin/superadmin.module').then((mod) => mod.SuperadminModule), // Ensure you return the module here
+  },
 
 
 
