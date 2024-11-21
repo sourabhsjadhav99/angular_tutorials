@@ -7,10 +7,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ChildComponent {
   // parent to child
-  @Input() childData: string = '';
+  // @Input() childData: string = '';
 
   // to chane name of variable coming from parent
-  // @Input('childData') newData: string = '';
+  @Input('childData') childInfo: string = '';
 
 
   // child to parent

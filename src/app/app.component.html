@@ -405,9 +405,9 @@
 <!-- ng-content -- dynamic component -->
 <!-- creating cards -->
 
-<!-- <div class="container ">
+<!-- <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="d-flex gap-5 border border-primary p-2" >
       <app-cards *ngFor="let course of courses">
         <h5 class="card-title">{{course.title}}</h5>
         <p class="card-text">{{course.description}}</p>
@@ -417,4 +417,16 @@
   </div>
 </div> -->
 
+<!-- ------------------------------------->
+
+<!-- ngStyle  -->
+
+<!-- <h1 [ngStyle]="{'background-color':'red'}">{{ngStyleVariable}}</h1> -->
+<!-- ------------------------------------->
+<!-- @ViewChild()  -->
+<input type="text" #getValue>
+<h4>{{viewChildVar}}</h4>
+<button (onclick)="getInputValue()">get value</button>
+<!-- ------------------------------------->
+<!-- ------------------------------------->
 <!-- ------------------------------------->

@@ -1,4 +1,4 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,ElementRef,OnInit,ViewChild} from '@angular/core';
 import {UserDataService} from './services/user-data.service';
 import {ProductsDataService} from './services/products-data.service';
 import {Router} from '@angular/router';
@@ -28,9 +28,6 @@ export class AppComponent implements OnInit {
         console.error('Error fetching data:',error);
       }
     );
-
-
-
 
   }
 
@@ -171,5 +168,21 @@ export class AppComponent implements OnInit {
     {title: "React",description: "this is react course"},
     {title: "Node",description: "this is node course"}
   ]
+
+
+  // ngStyle 
+
+  ngStyleVariable = "Hello world"
+
+
+viewChildVar:string=''
+  // @viewChild 
+  @ViewChild('#getValue') inputVal: ElementRef | any
+  getInputValue(): void {
+    this.viewChildVar= this.inputVal?.nativeElement?.value;
+
+  }
+
+
 }
 
